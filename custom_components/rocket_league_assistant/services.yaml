@@ -1,0 +1,28 @@
+update_match_data:
+  name: Update Match Data
+  description: Update Rocket League match data from webhook (supports full JSON payload or individual fields)
+  fields:
+    json_data:
+      name: JSON Data
+      description: Complete JSON payload from Rocket League webhook (recommended)
+      required: false
+      selector:
+        object:
+    data:
+      name: Data
+      description: The data field from the webhook (e.g., "matchEnded") - used when not providing json_data
+      required: false
+      selector:
+        text:
+    TeamData:
+      name: Team Data
+      description: Team information including scores and colors - used when not providing json_data
+      required: false
+      selector:
+        object:
+    MMRData:
+      name: MMR Data
+      description: Player MMR and rank information - used when not providing json_data
+      required: false
+      selector:
+        object:

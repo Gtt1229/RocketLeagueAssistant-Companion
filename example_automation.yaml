@@ -1,0 +1,47 @@
+# Example Home Assistant Automation for Rocket League Webhook
+# 
+# This automation shows how to call the Rocket League Assistant service
+# from your existing webhook automation.
+#
+# The integration will automatically match data based on platform and UUID
+# extracted from the UID field in the JSON
+#
+# SIMPLE METHOD (Recommended):
+# Just pass the entire JSON payload to the service
+
+automation:
+  - alias: "Rocket League Data Webhook - Simple"
+    description: "Receive and forward Rocket League match data to integration"
+    trigger:
+      - platform: webhook
+        webhook_id: your_webhook_id  # Your existing webhook ID
+        local_only: false
+    condition: []
+    action:
+      - service: rocket_league_assistant.update_match_data
+        data:
+          json_data: "{{ trigger.json }}"
+    mode: single
+
+# EXISTING AUTOMATION ADDITION:
+# If you already have a webhook automation, just add this action:
+#
+# - service: rocket_league_assistant.update_match_data
+#   data:
+#     json_data: "{{ trigger.json }}"
+
+# DETAILED METHOD (if you need to process the data first):
+automation_detailed:
+  - alias: "Rocket League Data Webhook - Detailed"
+    description: "Process individual fields before sending to integration"
+    trigger:
+      - platform: webhook
+        webhook_id: your_webhook_id
+    condition: []
+    action:
+      - service: rocket_league_assistant.update_match_data
+        data:
+          data: "{{ trigger.json.data }}"
+          TeamData: "{{ trigger.json.TeamData }}"
+          MMRData: "{{ trigger.json.MMRData }}"
+    mode: single

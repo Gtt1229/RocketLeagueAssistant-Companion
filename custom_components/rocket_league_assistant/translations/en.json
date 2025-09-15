@@ -1,0 +1,36 @@
+{
+  "title": "Rocket League Assistant",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Rocket League Player",
+        "description": "Configure your Rocket League Assistant integration",
+        "data": {
+          "name": "Name",
+          "username": "Username",
+          "platform": "Platform",
+          "uuid": "UUID"
+        }
+      }
+    },
+    "error": {
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "This platform/UUID combination is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rocket League Assistant Options",
+        "description": "Configure options for Rocket League Assistant",
+        "data": {
+          "username": "Username",
+          "platform": "Platform", 
+          "uuid": "UUID"
+        }
+      }
+    }
+  }
+}

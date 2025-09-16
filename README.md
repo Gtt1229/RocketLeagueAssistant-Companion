@@ -25,9 +25,13 @@ This custom Home Assistant integration allows you to track Rocket League rank da
 ### HACS Installation
 
 1. Open HACS in Home Assistant
-2. Go to Integrations
-3. Search for "Rocket League Assistant"
-4. Install the integration
+2. Open the menu from the top right and select "Custom Repositories"
+<img width="219" height="392" alt="image" src="https://github.com/user-attachments/assets/a028cbcb-10ac-4a57-a010-fd92fb9dd342" />
+
+3. Add this repo as a repository with the type of "Integration"
+<img width="449" height="789" alt="image" src="https://github.com/user-attachments/assets/91441330-cc20-40e6-9392-32f90fb26cc5" />
+  
+4. Search for Rocket League Assistant and install.
 5. Restart Home Assistant
 
 ## Configuration

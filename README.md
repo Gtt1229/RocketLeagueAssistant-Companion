@@ -35,7 +35,7 @@ This custom Home Assistant integration allows you to track Rocket League rank da
 When setting up the integration, you'll need to provide:
 
 - **Name**: A friendly name for this instance (default: "Rocket League Assistant")
-- **Username**: Your Rocket League username as it appears in the JSON data
+- **Username**: How you want to refer to the account
 - **Platform**: Your gaming platform (Steam or Epic)
 - **UUID**: Your platform-specific UUID (You can locate your UUID in the URL when reviewing your stats at https://rocketleague.tracker.network/)
 

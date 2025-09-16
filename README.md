@@ -1,6 +1,8 @@
 # Rocket League Assistant - Home Assistant Integration
 
-This custom Home Assistant integration allows you to track Rocket League rank data and match results from the Rocket League Assistant BakkesMod Plugin.
+This custom Home Assistant integration allows you to track Rocket League rank data and match results from the [Rocket League Assistant BakkesMod Plugin](https://github.com/Gtt1229/RocketLeagueAssistant/).
+
+![RLABanner](https://github.com/user-attachments/assets/0e1a93d5-99fe-4958-8c1e-f7e671fe2d62)
 
 ## Features
 

@@ -24,10 +24,18 @@ class RocketLeagueCoordinator(DataUpdateCoordinator):
         self.platform = entry.data[CONF_PLATFORM]
         self.uuid = entry.data[CONF_UUID]
         self.entry = entry
-        self._last_match_data: dict[str, Any] = {}
+        self.hass = hass
+        
+        # Try to restore last match data from entry data
+        self._last_match_data: dict[str, Any] = entry.data.get("last_match_data", {})
         
         _LOGGER.debug("Initializing RocketLeagueCoordinator for user: %s, platform: %s, UUID: %s", 
                      self.username, self.platform, self.uuid)
+        
+        if self._last_match_data:
+            _LOGGER.debug("Restored previous match data from config entry")
+        else:
+            _LOGGER.debug("No previous match data found, starting with empty state")
         
         super().__init__(
             hass,
@@ -100,6 +108,10 @@ class RocketLeagueCoordinator(DataUpdateCoordinator):
         
         if received_uuid == self.uuid:
             self._last_match_data = webhook_data
+            
+            # Save the data to config entry for persistence across reloads
+            self._save_match_data_to_entry(webhook_data)
+            
             self.async_set_updated_data(webhook_data)
             _LOGGER.info(
                 "✅ Updated match data for %s user %s (UUID: %s)", 
@@ -117,6 +129,22 @@ class RocketLeagueCoordinator(DataUpdateCoordinator):
                 received_uid,
                 received_uuid
             )
+
+    def _save_match_data_to_entry(self, webhook_data: dict[str, Any]) -> None:
+        """Save match data to config entry for persistence."""
+        try:
+            # Create new data dict with the last match data
+            new_data = dict(self.entry.data)
+            new_data["last_match_data"] = webhook_data
+            
+            # Update the config entry
+            self.hass.config_entries.async_update_entry(
+                self.entry, 
+                data=new_data
+            )
+            _LOGGER.debug("Saved match data to config entry for persistence")
+        except Exception as e:
+            _LOGGER.warning("Failed to save match data to config entry: %s", e)
 
     @property
     def player_data(self) -> dict[str, Any]:

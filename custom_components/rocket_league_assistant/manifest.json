@@ -4,10 +4,10 @@
   "codeowners": ["@gtt1229"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/gtt1229/RocketLeagueAssistant-Companion",
+  "documentation": "https://github.com/gtt1229/rocket_league_assistant",
   "integration_type": "service",
   "iot_class": "local_push",
-  "issue_tracker": "https://github.com/gtt1229/RocketLeagueAssistant-Companion/issues",
+  "issue_tracker": "https://github.com/gtt1229/rocket_league_assistant/issues",
   "requirements": [],
   "version": "1.0.0"
 }

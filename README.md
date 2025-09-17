@@ -1,6 +1,8 @@
 # Rocket League Assistant - Home Assistant Integration
 
-This custom Home Assistant integration allows you to track Rocket League rank data and match results from the Rocket League Assistant BakkesMod Plugin.
+This custom Home Assistant integration allows you to track Rocket League rank data and match results from the [Rocket League Assistant BakkesMod Plugin](https://github.com/Gtt1229/RocketLeagueAssistant/).
+
+![RLABanner](https://github.com/user-attachments/assets/49f5975c-f510-4585-8715-4d09a63ffd50)
 
 ## Features
 
@@ -23,9 +25,13 @@ This custom Home Assistant integration allows you to track Rocket League rank da
 ### HACS Installation
 
 1. Open HACS in Home Assistant
-2. Go to Integrations
-3. Search for "Rocket League Assistant"
-4. Install the integration
+2. Open the menu from the top right and select "Custom Repositories"
+<img width="219" height="392" alt="image" src="https://github.com/user-attachments/assets/a028cbcb-10ac-4a57-a010-fd92fb9dd342" />
+
+3. Add this repo as a repository with the type of "Integration"
+<img width="449" height="789" alt="image" src="https://github.com/user-attachments/assets/91441330-cc20-40e6-9392-32f90fb26cc5" />
+  
+4. Search for Rocket League Assistant and install.
 5. Restart Home Assistant
 
 ## Configuration
@@ -33,7 +39,7 @@ This custom Home Assistant integration allows you to track Rocket League rank da
 When setting up the integration, you'll need to provide:
 
 - **Name**: A friendly name for this instance (default: "Rocket League Assistant")
-- **Username**: Your Rocket League username as it appears in the JSON data
+- **Username**: How you want to refer to the account
 - **Platform**: Your gaming platform (Steam or Epic)
 - **UUID**: Your platform-specific UUID (You can locate your UUID in the URL when reviewing your stats at https://rocketleague.tracker.network/)
 
